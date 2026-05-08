@@ -1,9 +1,9 @@
 import java.util.Scanner;
-import java.util.PriorityQueue; // Para la implementación de prioridad rápida
+import java.util.PriorityQueue; 
 
 public class Main {
 
-    // --- 1. COLA USANDO ARREGLO CIRCULAR [cite: 84, 103] ---
+    // --- 1. COLA USANDO ARREGLO CIRCULAR 
     static class ColaCircular {
         private int[] arreglo;
         private int frente, fin, capacidad, contador;
@@ -17,8 +17,8 @@ public class Main {
         }
 
         public void enqueue(int dato) {
-            if (contador < capacidad) { // Verificar índices válidos [cite: 108]
-                fin = (fin + 1) % capacidad; // Lógica circular [cite: 86]
+            if (contador < capacidad) { 
+                fin = (fin + 1) % capacidad; 
                 arreglo[fin] = dato;
                 contador++;
                 System.out.println("Encolado en Arreglo: " + dato);
@@ -39,7 +39,7 @@ public class Main {
         }
     }
 
-    // --- 2. COLA USANDO LISTA ENLAZADA [cite: 87, 104] ---
+    // --- 2. COLA USANDO LISTA ENLAZADA ---
     static class ColaLista {
         private class Nodo {
             int dato;
@@ -66,18 +66,18 @@ public class Main {
                 return;
             }
             int valor = frente.dato;
-            frente = frente.siguiente; // Gestión de memoria dinámica [cite: 89]
-            if (frente == null) fin = null; // Liberar memoria [cite: 109]
+            frente = frente.siguiente; 
+            if (frente == null) fin = null; 
             System.out.println("Desencolado de Lista: " + valor);
         }
     }
 
-    // --- 3. COLA CON PRIORIDAD [cite: 90, 105] ---
+    // --- 3. COLA CON PRIORIDAD ---
     static class ColaPrioritaria {
         private PriorityQueue<Integer> colaP = new PriorityQueue<>();
 
         public void enqueue(int dato) {
-            colaP.add(dato); // Los elementos se ordenan por prioridad [cite: 91]
+            colaP.add(dato); 
             System.out.println("Encolado con Prioridad: " + dato);
         }
 
@@ -90,7 +90,7 @@ public class Main {
         }
     }
 
-    // --- MENÚ Y PRUEBAS CON SCANNER [cite: 106] ---
+    // --- MENÚ Y PRUEBAS CON SCANNER---
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ColaCircular cArreglo = new ColaCircular(5);
